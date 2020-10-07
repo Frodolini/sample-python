@@ -4,13 +4,11 @@ import socketserver
 
 from http import HTTPStatus
 
-a = "Frodolini"
-
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         self.send_response(HTTPStatus.OK)
         self.end_headers()
-        msg = a, 'Hei på deg fremmede paa internettet! Du førespurde %s' % (self.path)
+        msg = 'Hei på deg fremmede paa internettet! Du førespurde %s' % (self.path)
         self.wfile.write(msg.encode())
 
 
